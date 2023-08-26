@@ -9,7 +9,7 @@ body {
     background: linear-gradient(to bottom, rgb(140, 122, 122) 0%, rgb(175, 135, 124) 65%, rgb(175, 135, 124) 100%) fixed;
     background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/coc-background.jpg") no-repeat center center fixed;
     background-size: cover;
-    background-color: #3a3256;
+    background-color: #3a3256b8;
     display: grid;
     grid-template-areas: 
         "header"
@@ -174,7 +174,6 @@ main {
 }
 
 label {
-    /* color: #4c4c4c; */
     font-size: 22px;
     font-family: 'Poppins', sans-serif;
     cursor: pointer;
@@ -191,7 +190,7 @@ label {
             minmax(350px, 1fr)
         )
     ;
-    gap: 32px;
+    gap: 42px;
     padding: 30px;
 }
 
@@ -199,8 +198,8 @@ label {
     display: grid;
     place-items: center;
     position: relative;
-    width: 390px;
-    height: 500px;
+    width: 350px;
+    height: 450px;
     background: linear-gradient(50deg, #2a5a3b, #1e4886);
     border-radius: 10px;
     padding: 3px;
@@ -221,10 +220,8 @@ label {
 }
 
 .card {
+    width: 100%;
     position: relative;
-    background: radial-gradient(
-        circle at 50% 0%, orange 36%, #ffffff 36%
-    );
     padding: 30px 20px;
     box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
     border-radius: 10px;
@@ -249,10 +246,11 @@ label {
 
 .card img {
     display: block;
-    width: 300px;
+    width: 150px;
     max-height: 200px;
     position: relative;
     margin: 20px auto;
+    margin-left: 70px;
 }
 
 .hp {
@@ -267,8 +265,9 @@ label {
 }
 
 .poke-name {
+    font-size: 35px;
     text-align: center;
-    font-weight: 400;
+    font-weight: 600;
 }
 
 .types {
@@ -281,6 +280,12 @@ label {
     font-size: 12px;
     letter-spacing: 0.4px;
     font-weight: 600;
+}
+
+.types span {
+    padding: 5px 20px;
+    border-radius: 20px;
+    color: #fff;
 }
 
 .stats {
@@ -296,7 +301,7 @@ label {
 
 .light {
     color: black;
-    background-color: #ffffff0f;
+    background-color: #ffffff;
 }
 
 .dark {

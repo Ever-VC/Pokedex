@@ -13,12 +13,12 @@
 		<section class="logo">
 			<img src="./images/logo.svg" alt="">
 		</section>
-		<section class="search">
-			<input type="text" placeholder="Buscar Pókemon..." spellcheck="false">
-			<button><img src="./images/search.png"></button>
-		</section>
+		<form class="search">
+			<input type="text" placeholder="Buscar Pókemon..." spellcheck="false" data-search>
+			<button type="submit"><img src="./images/search.png"></button>
+		</form>
 		<section class="mode">
-			<input type="checkbox" id="light" data-mode>
+			<!-- <input type="checkbox" id="light" data-mode> -->
 		</section>
 	</header>
 	<main>
@@ -43,40 +43,11 @@
 					<label for="checkbox">Aire</label>
 				</li>
 			</ul>
-			
 		</section>
 		<section class="cards" data-cards>
-			<article class="card-container">
-				<div class="card" data-card>
-					<p class="hp">
-						<span>HP</span>
-						80
-					</p>
-					<img src="./images/pikachu.png" alt="">
-					<h2 class="poke-name">Nombre</h2>
-					<div class="types">
-						<span>Type 1</span>
-						<span>Type 2</span>
-					</div>
-					<div class="stats">
-						<div>
-							<h3>60</h3>
-							<p>Attack</p>
-						</div>
-						<div>
-							<h3>60</h3>
-							<p>Defense</p>
-						</div>
-						<div>
-							<h3>60</h3>
-							<p>Speed</p>
-						</div>
-					</div>
-				</div>
-			</article>
+			
 		</section>
 	</main>
 </body>
-<script src="https://kit.fontawesome.com/bf90621d6c.js" crossorigin="anonymous"></script>
 <script src="./js/main.js" type="module"></script>
 </html>
