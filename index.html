@@ -6,26 +6,48 @@
     <!-- <link rel="stylesheet" href="./css/reset.css"> -->
 	<link rel="stylesheet" href="./css/styles.css">
 	<link rel="icon" type="image/png" href="./images/logo512.png">
-    <title>POKEDEX</title>
+    <title>Pokédex</title>
 </head>
 <body>
-    <header>
+    <header data-header>
 		<section class="logo">
 			<img src="./images/logo.svg" alt="">
 		</section>
-		<article class="search">
+		<section class="search">
 			<input type="text" placeholder="Buscar Pókemon..." spellcheck="false">
 			<button><img src="./images/search.png"></button>
-		</article>
+		</section>
+		<section class="mode">
+			<input type="checkbox" id="light" data-mode>
+		</section>
 	</header>
 	<main>
 		<section class="filters">
-			<input type="checkbox" id="checkbox">
-			<label for="checkbox">FILTRO #1</label>
+			<h2>FILTROS</h2>
+			<hr>
+			<ul>
+				<li>
+					<input type="checkbox" id="checkbox" class="checkbox">
+					<label for="checkbox">Agua</label>
+				</li>
+				<li>
+					<input type="checkbox" id="checkbox" class="checkbox">
+					<label for="checkbox">Fuego</label>
+				</li>
+				<li>
+					<input type="checkbox" id="checkbox" class="checkbox">
+					<label for="checkbox">Tierra</label>
+				</li>
+				<li>
+					<input type="checkbox" id="checkbox" class="checkbox">
+					<label for="checkbox">Aire</label>
+				</li>
+			</ul>
+			
 		</section>
-		<section class="cards">
+		<section class="cards" data-cards>
 			<article class="card-container">
-				<div class="card">
+				<div class="card" data-card>
 					<p class="hp">
 						<span>HP</span>
 						80
@@ -55,5 +77,6 @@
 		</section>
 	</main>
 </body>
+<script src="https://kit.fontawesome.com/bf90621d6c.js" crossorigin="anonymous"></script>
 <script src="./js/main.js" type="module"></script>
 </html>

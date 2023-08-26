@@ -9,6 +9,7 @@ body {
     background: linear-gradient(to bottom, rgb(140, 122, 122) 0%, rgb(175, 135, 124) 65%, rgb(175, 135, 124) 100%) fixed;
     background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/coc-background.jpg") no-repeat center center fixed;
     background-size: cover;
+    background-color: #3a3256;
     display: grid;
     grid-template-areas: 
         "header"
@@ -22,13 +23,13 @@ header {
     grid-area: header;
     width: 100%;
     height: 130px;
-    padding: 20px;
+    padding: 20px;    
     display: grid;
     grid-template-areas: 
-        "logo search"
+        "logo search . mode"
     ;
-    grid-template-columns: 1fr 2fr 3fr;
-    background-color: #527c7459;
+    grid-template-columns: 1fr 2fr 2fr 1fr;
+    background-color: #39645d59;
     color: #ebfffc;
 }
 
@@ -82,6 +83,43 @@ header h1 {
     margin: 0 20px;
 }
 
+.mode {
+    grid-area: mode;
+    width: 100%;
+}
+
+.mode input[type="checkbox"] {
+    appearance: none;
+    height: 50px;
+    width: 120px;
+    background-color: #3a3256;
+    position: absolute;
+    transform: translateX(95%);
+    top: 40px;
+    border-radius: 30px;
+}
+
+.mode input[type="checkbox"]::before {
+    position: absolute;
+    content: "";
+    height: 40px;
+    width: 40px;
+    background-color: #7d7890;
+    border-radius: 50%;
+    top: 5px;
+    left: 5px;
+}
+
+.mode input[type="checkbox"] {
+    cursor: pointer;
+}
+
+.mode input[type="checkbox"]:checked::before {
+    background-color: #fff;
+    left: 75px;
+    box-shadow: 0 0 20px 5px rgba(196, 241, 255, 0.8);
+}
+
 main {
     width: 100%;
     grid-area: main;
@@ -91,52 +129,57 @@ main {
     ;
     grid-template-columns: 1fr 4.5fr;
     grid-template-rows: auto;
+    min-height: calc(100vh - 130px);
 }
 
 .filters {
     grid-area: filters;
     width: 100%;
-    padding: 20px;
+    padding: 20px 0px 0px 40px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #e8e8e80c;
+    color: #fff;
 }
 
-#checkbox {
+.filters h2 {
+    font-size: 25px;
 }
 
-label {
-    font-weight: 500;
-    color: #333;
-    cursor: pointer;
+.filters hr {
+    margin-bottom: 30px;
 }
 
-#checkbox:checked {
-    accent-color: #7d2ae8;
+.filters ul {
+    list-style: none;
 }
 
-#checkbox:checked ~ label {
-    color: #7d2ae8;
+.filters ul li {
+    margin-bottom: 15px;
 }
 
-/* input[type="checkbox"]{
-    appearance: none;
-    -webkit-appearance: none;
-    height: 20px;
-    width: 20px;
+.checkbox {
+    height: 15px;
+    width: 15px;
     background-color: #d5d5d5;
     border-radius: 5px;
     cursor: pointer;
 }
 
-label {
-    color: #4c4c4c;
-    font-size: 20px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    cursor: pointer;
-} */
-
-input[type="checkbox"]::after {
-    
+.checkbox:checked {
+    accent-color: #7d2ae8;
 }
+
+.checkbox:checked {
+    color: #7d2ae8;
+}
+
+label {
+    /* color: #4c4c4c; */
+    font-size: 22px;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+}
+
 
 .cards {
     width: 100%;
@@ -157,6 +200,7 @@ input[type="checkbox"]::after {
     place-items: center;
     position: relative;
     width: 390px;
+    height: 500px;
     background: linear-gradient(50deg, #2a5a3b, #1e4886);
     border-radius: 10px;
     padding: 3px;
@@ -248,4 +292,14 @@ input[type="checkbox"]::after {
 
 .stats p {
     color: #404060;
+}
+
+.light {
+    color: black;
+    background-color: #ffffff0f;
+}
+
+.dark {
+    color: #fff;
+    background-color: #3a325611;
 }
