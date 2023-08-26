@@ -1,0 +1,251 @@
+* {
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+}
+
+body {
+    background: linear-gradient(to bottom, rgb(140, 122, 122) 0%, rgb(175, 135, 124) 65%, rgb(175, 135, 124) 100%) fixed;
+    background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/coc-background.jpg") no-repeat center center fixed;
+    background-size: cover;
+    display: grid;
+    grid-template-areas: 
+        "header"
+        "main"
+    ;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+header {
+    grid-area: header;
+    width: 100%;
+    height: 130px;
+    padding: 20px;
+    display: grid;
+    grid-template-areas: 
+        "logo search"
+    ;
+    grid-template-columns: 1fr 2fr 3fr;
+    background-color: #527c7459;
+    color: #ebfffc;
+}
+
+.logo {
+    grid-area: logo;
+    display: flex;
+}
+
+header img {
+    width: 200px;
+}
+
+header h1 {
+    font-size: 40px;
+    font-weight: 400;
+}
+
+.search {
+    width: 100%;
+    grid-area: search;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search input {
+    border: 0;
+    outline: 0;
+    background: #ebfffc;
+    color: #555;
+    padding: 10px 25px;
+    height: 60px;
+    border-radius: 30px;
+    flex: 1;
+    margin-right: 16px;
+    font-size: 18px;
+}
+
+.search button {
+    border: 0;
+    outline: 0;
+    background: #ebfffc;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}
+
+.search button img {
+    width: 20px;
+    margin: 0 20px;
+}
+
+main {
+    width: 100%;
+    grid-area: main;
+    display: grid;
+    grid-template-areas: 
+        "filters cards"
+    ;
+    grid-template-columns: 1fr 4.5fr;
+    grid-template-rows: auto;
+}
+
+.filters {
+    grid-area: filters;
+    width: 100%;
+    padding: 20px;
+}
+
+#checkbox {
+}
+
+label {
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+}
+
+#checkbox:checked {
+    accent-color: #7d2ae8;
+}
+
+#checkbox:checked ~ label {
+    color: #7d2ae8;
+}
+
+/* input[type="checkbox"]{
+    appearance: none;
+    -webkit-appearance: none;
+    height: 20px;
+    width: 20px;
+    background-color: #d5d5d5;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+label {
+    color: #4c4c4c;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+} */
+
+input[type="checkbox"]::after {
+    
+}
+
+.cards {
+    width: 100%;
+    grid-area: cards;
+    display: grid;
+    grid-template-columns: 
+        repeat(
+            auto-fit,
+            minmax(350px, 1fr)
+        )
+    ;
+    gap: 32px;
+    padding: 30px;
+}
+
+.card-container {
+    display: grid;
+    place-items: center;
+    position: relative;
+    width: 390px;
+    background: linear-gradient(50deg, #2a5a3b, #1e4886);
+    border-radius: 10px;
+    padding: 3px;
+    overflow: hidden;
+    box-shadow: 3px 3px 10px #494949;
+}
+
+.card-container::before {
+    content: "";
+    position: absolute;
+    width: 750px;
+    height: 35px;
+    top: 0;
+    right: 10px;
+    transition: 1.9s;
+    background: linear-gradient(50deg, #00ff59, #02b3ff);
+    transform: rotate(-45deg) translate(0, -30px);
+}
+
+.card {
+    position: relative;
+    background: radial-gradient(
+        circle at 50% 0%, orange 36%, #ffffff 36%
+    );
+    padding: 30px 20px;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    color: #01505a;
+    height: 100%;
+    cursor: pointer;
+}
+
+.card:hover {
+    color: rgb(0, 0, 0);
+}
+
+.card-container:hover::before {
+    animation: efect 1.9s;
+}
+
+@keyframes efect {
+    100% {
+        transform: rotate(-45deg) translate(0, 650px);
+    }
+}
+
+.card img {
+    display: block;
+    width: 300px;
+    max-height: 200px;
+    position: relative;
+    margin: 20px auto;
+}
+
+.hp {
+    width: 80px;
+    background-color: #ffffff;
+    text-align: center;
+    padding: 8px 0;
+    border-radius: 30px;
+    margin-left: auto;
+    font-weight: 400;
+    float: right;
+}
+
+.poke-name {
+    text-align: center;
+    font-weight: 400;
+}
+
+.types {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0 40px 0;
+}
+
+.hp span, .types span {
+    font-size: 12px;
+    letter-spacing: 0.4px;
+    font-weight: 600;
+}
+
+.stats {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.stats p {
+    color: #404060;
+}
