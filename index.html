@@ -11,22 +11,42 @@
 </head>
 <body>
     <header data-header>
-		<section class="logo">
-			<img src="./images/logo.svg" alt="">
+		<section class="header-top">
+			<article class="logo">
+				<img src="./images/logo.svg" alt="" data-logo>
+			</article>
+			<form class="search" data-form>
+				<input type="search" placeholder="Buscar Pokémon..." spellcheck="false" data-input>
+				<!-- <div class="div-search">
+					<ul class="container-suggestions">
+						<li>Sugerencia 1</li>
+						<li>Sugerencia 2</li>
+						<li>Sugerencia 3</li>
+					</ul>
+				</div> -->
+				<button type="submit"><img src="./images/search.png"></button data-seacrh>
+			</form>
+			<section class="mode">
+				<!-- <input type="checkbox" id="light" data-mode> -->
+			</section>
 		</section>
-		<form class="search active" data-form>
-			<input type="text" placeholder="Buscar Pókemon..." spellcheck="false" data-input>
-			<!-- <div class="div-search">
-				<ul class="container-suggestions">
-					<li>Sugerencia 1</li>
-					<li>Sugerencia 2</li>
-					<li>Sugerencia 3</li>
-				</ul>
-			</div> -->
-			<button type="submit"><img src="./images/search.png"></button data-btn>
-		</form>
-		<section class="mode">
-			<!-- <input type="checkbox" id="light" data-mode> -->
+		<section class="buttons-types">
+			<button class="button-type">Grass</button>
+			<button class="button-type">Poison</button>
+			<button class="button-type">Fire</button>
+			<button class="button-type">Flying</button>
+			<button class="button-type">Water</button>
+			<button class="button-type">Bug</button>
+			<button class="button-type">Normal</button>
+			<button class="button-type">Electric</button>
+			<button class="button-type">Ground</button>
+			<button class="button-type">Fairy</button>
+			<button class="button-type">Fighting</button>
+			<button class="button-type">Psychic</button>
+			<button class="button-type">Rock</button>
+			<button class="button-type">Ice</button>
+			<button class="button-type">Ghost</button>
+			<button class="button-type">Dragon</button>
 		</section>
 	</header>
 	<main>

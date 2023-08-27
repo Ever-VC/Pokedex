@@ -1,6 +1,6 @@
 export const typeColor = {
     bug: "#26de81",
-    dragon: "#ffeaa7",
+    dragon: "#FF5733",
     electric: "#fed330",
     fairy: "#FF0069",
     fighting: "#30336b",
@@ -15,9 +15,5 @@ export const typeColor = {
     psychic: "#a29bfe",
     rock: "#2d3436",
     water: "#0190ff"
-
-}
-
-export const getColor = (index) => {
 
 }

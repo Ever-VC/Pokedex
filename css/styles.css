@@ -24,17 +24,29 @@ body {
 header {
     grid-area: header;
     width: 93%;
-    height: 130px;
+    height: 230px;
     padding: 20px;    
+    display: grid;
+    grid-template-areas: 
+        "headerTop"
+        "types"
+    ;
+    grid-template-columns: auto;
+    background-color: #018aa9;
+    /* background: linear-gradient(to right, #00B4DB, #0083B0); */
+    color: #ebfffc;
+    margin-top: 30px;
+    border-radius: 20px;
+}
+
+.header-top {
+    width: 100%;
+    grid-area: headerTop;
     display: grid;
     grid-template-areas: 
         "logo search ."
     ;
     grid-template-columns: 1fr 2fr 1fr;
-    background-color: #369383;
-    color: #ebfffc;
-    margin-top: 30px;
-    border-radius: 20px;
 }
 
 .logo {
@@ -43,7 +55,11 @@ header {
 }
 
 header img {
-    width: 200px;
+    width: 200px;    
+}
+
+header img:hover {
+    cursor: pointer;
 }
 
 header h1 {
@@ -88,6 +104,21 @@ header h1 {
     margin: 0 20px;
 }
 
+.buttons-types {
+    grid-area: types;
+    text-align: center;
+}
+
+.button-type {
+    padding: 5px 20px;
+    margin-top: 10px;
+    border-radius: 20px;
+    color: #fff;
+    border: none;
+}
+.button-type:hover {
+    cursor: pointer;
+}
 /* .div-search {
     width: 90%;
 }

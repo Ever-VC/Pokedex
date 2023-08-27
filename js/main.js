@@ -71,6 +71,8 @@ const Pokedex = (() => {
         const cardTheme = document.querySelector(`[data-card-${pokemon.id}]`);
         _appednTypes(pokemon.types, divTypes);
         const themeColor = typeColor[pokemon.types[0].type.name];
+        //console.log(pokemon.types[0].type.name);
+        //console.log(themeColor);
         _styleCard(themeColor, cardTheme);
     }
 
@@ -91,6 +93,23 @@ const Pokedex = (() => {
         });
     }
 
+    const _paintTypesButtons = () => {
+        const containerButtonsType = document.querySelector(".buttons-types");
+        if (containerButtonsType.hasChildNodes() )
+        {
+            const children = containerButtonsType.childNodes;
+
+            for (let i = 0; i < children.length; i++) {
+                if ((i % 2) !== 0) {
+                    let colorTheme = typeColor[children[i].textContent.toLowerCase()];
+                    children[i].style.background = typeColor[children[i].textContent.toLowerCase()];
+                }
+                
+            }
+        }
+
+    }
+
     const _fetchPokemon = async(id) => {
         try {
             const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`);
@@ -103,16 +122,9 @@ const Pokedex = (() => {
         }
     }
 
-    const searchPokemon = async (name) => {
-        const cards = document.querySelector("[data-cards]");
-        const cardContainer = document.createElement('article');
-        cardContainer.classList.add("card-container");
-        _drawPokemonCard(name, cardContainer);
-        cards.appendChild(cardContainer);
-    }
-
     const showPokedex = (amount, name) => {
         _amountPokemonsShow(amount, name);
+        _paintTypesButtons();
     }
 
     return {
@@ -133,6 +145,12 @@ const removeAllCards = () => {
 Pokedex.showPokedex(150, "null");
 
 const form = document.querySelector("[data-form]");
+const imgHome = document.querySelector("[data-logo]");
+
+imgHome.addEventListener("click", () => {
+    removeAllCards();
+    Pokedex.showPokedex(150, "null");
+});
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -141,7 +159,7 @@ form.addEventListener('submit', (e) => {
         removeAllCards();
         Pokedex.showPokedex(0, pokeName.toLowerCase());
     } else {
-        alert('No has escrito nada en el usuario');
+        alert('Por favor ingrese el nombre del Pokémon en la caja de texto.');
         removeAllCards();
         Pokedex.showPokedex(150, "null");
         return;

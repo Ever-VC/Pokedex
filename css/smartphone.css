@@ -1,6 +1,14 @@
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 890px) {
     header {
-        height: 200px;
+        height: 400px;
+        grid-template-areas: 
+            "headerTop"
+            "types"
+        ;
+        grid-template-columns: auto;
+    }
+
+    .header-top {
         grid-template-areas: 
             "logo"
             "search"
