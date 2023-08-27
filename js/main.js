@@ -15,20 +15,23 @@ modeDarkLight.addEventListener("change", () => {
 import { Pokemon } from "./PokemonClass.js";
 import { typeColor } from "./colors.js";
 
-const url = "ttps://pokeapi.co/api/v2/pokemon/{id or name}/";
-/* const card = document.querySelector("[data-card]"); */
-
-
 const Pokedex = (() => {
     'use strict';
 
-    const _amountPokemonsShow = (amount) => {
+    const _amountPokemonsShow = (amount, name) => {
         const cards = document.querySelector("[data-cards]");
-        for (let i = 1; i <= amount; i++) {
+        if (amount == 0) {
             const cardContainer = document.createElement('article');
             cardContainer.classList.add("card-container");
-            _drawPokemonCard(i, cardContainer);
+            _drawPokemonCard(name, cardContainer);
             cards.appendChild(cardContainer);
+        } else {
+            for (let i = 1; i <= amount; i++) {
+                const cardContainer = document.createElement('article');
+                cardContainer.classList.add("card-container");
+                _drawPokemonCard(i, cardContainer);
+                cards.appendChild(cardContainer);
+            }
         }
     }
 
@@ -37,14 +40,14 @@ const Pokedex = (() => {
         const pokemon = Pokemon(id, name, types, stats,hp, sprites);
         let card = '';
         card += `
-            <div class="card" data-card-${_id}>
+            <div class="card" data-card-${pokemon.id}>
                 <p class="hp">
                     <span>HP</span>
                     #${pokemon.id.toString().padStart(3,0)}
                 </p>
                 <img src="${pokemon.sprites.other.dream_world.front_default}" alt="">
                 <h2 class="poke-name">${pokemon.name}</h2>
-                <div class="types" data-type-${_id}>
+                <div class="types" data-type-${pokemon.id}>
 
                 </div>
                 <div class="stats">
@@ -64,8 +67,8 @@ const Pokedex = (() => {
             </div>
         `;
         _cardContainer.innerHTML = card;
-        const divTypes = document.querySelector(`[data-type-${_id}]`);
-        const cardTheme = document.querySelector(`[data-card-${_id}]`)
+        const divTypes = document.querySelector(`[data-type-${pokemon.id}]`);
+        const cardTheme = document.querySelector(`[data-card-${pokemon.id}]`);
         _appednTypes(pokemon.types, divTypes);
         const themeColor = typeColor[pokemon.types[0].type.name];
         _styleCard(themeColor, cardTheme);
@@ -73,7 +76,6 @@ const Pokedex = (() => {
 
     const _appednTypes = (types, divTypes) => {
         types.forEach(item => {
-            //${pokemon.types[0].type.name}
             const span = document.createElement("span");
             span.textContent = item.type.name;
             divTypes.appendChild(span);
@@ -81,8 +83,6 @@ const Pokedex = (() => {
     }
 
     const _styleCard = (themeColor, cardTheme) => {
-        console.log(cardTheme);
-        console.log(themeColor)
         cardTheme.style.background = `radial-gradient(
             circle at 50% 0%, ${themeColor} 36%, #ffffff 36%
         )`;
@@ -103,15 +103,50 @@ const Pokedex = (() => {
         }
     }
 
-    const showPokedex = () => {
-        _amountPokemonsShow(150);
+    const searchPokemon = async (name) => {
+        const cards = document.querySelector("[data-cards]");
+        const cardContainer = document.createElement('article');
+        cardContainer.classList.add("card-container");
+        _drawPokemonCard(name, cardContainer);
+        cards.appendChild(cardContainer);
+    }
+
+    const showPokedex = (amount, name) => {
+        _amountPokemonsShow(amount, name);
     }
 
     return {
         showPokedex
     }
-
-    //const drawCard
 })();
 
-Pokedex.showPokedex();
+const removeAllCards = () => {
+    const cards = document.querySelector("[data-cards]");
+    if (cards.hasChildNodes() )
+    {
+        while ( cards.childNodes.length >= 1 ){
+            cards.removeChild( cards.firstChild );
+        }
+    }
+}
+
+Pokedex.showPokedex(150, "null");
+
+const form = document.querySelector("[data-form]");
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const pokeName = document.querySelector("[data-input]").value;
+    if (pokeName.length !== 0) {
+        removeAllCards();
+        Pokedex.showPokedex(0, pokeName.toLowerCase());
+    } else {
+        alert('No has escrito nada en el usuario');
+        removeAllCards();
+        Pokedex.showPokedex(150, "null");
+        return;
+    }
+
+    this.submit();
+    //Pokedex.searchPokemon(input.value.toLowerCase());
+});

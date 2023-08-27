@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link rel="stylesheet" href="./css/reset.css"> -->
 	<link rel="stylesheet" href="./css/styles.css">
+	<link rel="stylesheet" href="./css/smartphone.css">
 	<link rel="icon" type="image/png" href="./images/logo512.png">
     <title>Pokédex</title>
 </head>
@@ -13,16 +14,23 @@
 		<section class="logo">
 			<img src="./images/logo.svg" alt="">
 		</section>
-		<form class="search">
-			<input type="text" placeholder="Buscar Pókemon..." spellcheck="false" data-search>
-			<button type="submit"><img src="./images/search.png"></button>
+		<form class="search active" data-form>
+			<input type="text" placeholder="Buscar Pókemon..." spellcheck="false" data-input>
+			<!-- <div class="div-search">
+				<ul class="container-suggestions">
+					<li>Sugerencia 1</li>
+					<li>Sugerencia 2</li>
+					<li>Sugerencia 3</li>
+				</ul>
+			</div> -->
+			<button type="submit"><img src="./images/search.png"></button data-btn>
 		</form>
 		<section class="mode">
 			<!-- <input type="checkbox" id="light" data-mode> -->
 		</section>
 	</header>
 	<main>
-		<section class="filters">
+		<!-- <section class="filters">
 			<h2>FILTROS</h2>
 			<hr>
 			<ul>
@@ -43,7 +51,7 @@
 					<label for="checkbox">Aire</label>
 				</li>
 			</ul>
-		</section>
+		</section> -->
 		<section class="cards" data-cards>
 			
 		</section>

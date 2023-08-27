@@ -6,31 +6,35 @@
 }
 
 body {
-    background: linear-gradient(to bottom, rgb(140, 122, 122) 0%, rgb(175, 135, 124) 65%, rgb(175, 135, 124) 100%) fixed;
+    /* background: linear-gradient(to bottom, rgb(140, 122, 122) 0%, rgb(175, 135, 124) 65%, rgb(175, 135, 124) 100%) fixed;
     background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/coc-background.jpg") no-repeat center center fixed;
     background-size: cover;
-    background-color: #3a3256b8;
+    background-color: #3a3256b8; */
+    background-color: seashell; 
     display: grid;
     grid-template-areas: 
-        "header"
-        "main"
+        ". header ."
+        ". main ."
     ;
-    grid-template-columns: auto;
+    grid-template-columns: 1fr 4fr 1fr;
     grid-template-rows: auto;
+    place-items: center;
 }
 
 header {
     grid-area: header;
-    width: 100%;
+    width: 93%;
     height: 130px;
     padding: 20px;    
     display: grid;
     grid-template-areas: 
-        "logo search . mode"
+        "logo search ."
     ;
-    grid-template-columns: 1fr 2fr 2fr 1fr;
-    background-color: #39645d59;
+    grid-template-columns: 1fr 2fr 1fr;
+    background-color: #369383;
     color: #ebfffc;
+    margin-top: 30px;
+    border-radius: 20px;
 }
 
 .logo {
@@ -56,6 +60,7 @@ header h1 {
 }
 
 .search input {
+    width: 100%;
     border: 0;
     outline: 0;
     background: #ebfffc;
@@ -81,6 +86,37 @@ header h1 {
 .search button img {
     width: 20px;
     margin: 0 20px;
+}
+
+/* .div-search {
+    width: 90%;
+}
+
+.container-suggestions {
+    max-height: 280px;
+    opacity: 0;
+    pointer-events: none;
+    padding: 0;
+    overflow-y: auto;
+    background-color: #00ff59;
+}
+
+.container-suggestions li {
+    list-style: none;
+    width: 100%;
+    padding: 8px 12px;
+    border-radius: 5px;
+    display: none;
+}
+
+.search.active .container-suggestions {
+    opacity: 1;
+    pointer-events: auto;
+    padding: 10px 8px;
+}
+
+.search.active .container-suggestions li{
+    display: block;
 }
 
 .mode {
@@ -118,21 +154,22 @@ header h1 {
     background-color: #fff;
     left: 75px;
     box-shadow: 0 0 20px 5px rgba(196, 241, 255, 0.8);
-}
+} */
 
 main {
     width: 100%;
     grid-area: main;
     display: grid;
     grid-template-areas: 
-        "filters cards"
+        "cards"
     ;
-    grid-template-columns: 1fr 4.5fr;
+    grid-template-columns: auto;
     grid-template-rows: auto;
     min-height: calc(100vh - 130px);
+    margin: 0;
 }
 
-.filters {
+/* .filters {
     grid-area: filters;
     width: 100%;
     padding: 20px 0px 0px 40px;
@@ -177,8 +214,7 @@ label {
     font-size: 22px;
     font-family: 'Poppins', sans-serif;
     cursor: pointer;
-}
-
+} */
 
 .cards {
     width: 100%;
@@ -247,7 +283,9 @@ label {
 .card img {
     display: block;
     width: 150px;
-    max-height: 200px;
+    height: 150px;
+    /* max-height: 150px;
+    min-height: 100px; */
     position: relative;
     margin: 20px auto;
     margin-left: 70px;

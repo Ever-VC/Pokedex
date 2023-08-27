@@ -1,0 +1,10 @@
+@media only screen and (max-width: 768px) {
+    header {
+        height: 200px;
+        grid-template-areas: 
+            "logo"
+            "search"
+        ;
+        grid-template-columns: auto;
+    }
+}
