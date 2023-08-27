@@ -53,15 +53,15 @@ const Pokedex = (() => {
                 <div class="stats">
                     <div>
                         <h3>${pokemon.stats[1].base_stat}</h3>
-                        <p>Taque</p>
+                        <p>Attack</p>
                     </div>
                     <div>
                         <h3>${pokemon.stats[2].base_stat}</h3>
-                        <p>Defensa</p>
+                        <p>Defense</p>
                     </div>
                     <div>
                         <h3>${pokemon.stats[5].base_stat}</h3>
-                        <p>Velocidad</p>
+                        <p>Speed</p>
                     </div>
                 </div>
             </div>
