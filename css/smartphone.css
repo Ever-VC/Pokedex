@@ -1,18 +1,42 @@
 @media only screen and (max-width: 890px) {
     header {
-        height: 400px;
+        height: 200px;
         grid-template-areas: 
             "headerTop"
-            "types"
         ;
         grid-template-columns: auto;
     }
-
+    header img {
+        width: 130px;
+    }
     .header-top {
         grid-template-areas: 
             "logo"
             "search"
         ;
         grid-template-columns: auto;
+    }
+
+    .search input {
+        height: 30px;
+    }
+
+    .search button {
+        width: 30px;
+        height: 30px;
+    }
+
+    .search button img {
+        margin: 0;
+        width: 10px;
+    }
+
+    .buttons-types {
+        display: none;
+    }
+
+
+    .load-container {
+        margin-top: -40px;
     }
 }

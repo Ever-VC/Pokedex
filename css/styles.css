@@ -116,9 +116,15 @@ header h1 {
     color: #fff;
     border: none;
 }
+
 .button-type:hover {
     cursor: pointer;
 }
+
+.menu {
+    display: none;
+}
+
 /* .div-search {
     width: 90%;
 }

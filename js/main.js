@@ -118,8 +118,9 @@ const Pokedex = (() => {
         const divTypes = document.querySelector(`[data-type-${pokemon.id}]`);
         const cardTheme = document.querySelector(`[data-card-${pokemon.id}]`);
         _appednTypes(pokemon.types, divTypes);
+        //console.log(pokemon.types);
         const themeColor = typeColor[pokemon.types[0].type.name];
-        _styleCard(themeColor, cardTheme);
+        _styleCard(themeColor, cardTheme, divTypes);
     }
 
     const _appednTypes = (types, divTypes) => {
@@ -130,13 +131,16 @@ const Pokedex = (() => {
         });
     }
 
-    const _styleCard = (themeColor, cardTheme) => {
+    const _styleCard = (themeColor, cardTheme, divTypes) => {
         cardTheme.style.background = `radial-gradient(
             circle at 50% 0%, ${themeColor} 36%, #ffffff 36%
         )`;
-        cardTheme.querySelectorAll(".types span").forEach(typeColor => {
-            typeColor.style.background = themeColor;
-        });
+        
+        const children = divTypes.childNodes;
+
+        for (let i = 1; i < children.length; i++) {
+            children[i].style.background = typeColor[children[i].textContent];           
+        }
     }
 
     const _paintTypesButtons = () => {
@@ -174,11 +178,7 @@ const Pokedex = (() => {
     }
 })();
 
-
-
 Pokedex.showPokedex(150, "null", "null");
-
-
 
 const form = document.querySelector("[data-form]");
 const imgHome = document.querySelector("[data-logo]");
