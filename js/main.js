@@ -25,6 +25,7 @@ const Pokedex = (() => {
     }
 
     const _waitingCardsLoad = () => {
+        removeAllCards();
         const cards = document.querySelector("[data-cards]");
         let dinvLoadContainer = '';
         dinvLoadContainer += `
