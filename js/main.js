@@ -6,12 +6,12 @@ const Pokedex = (() => {
 
     const showPokedex = (amount, name, type) => {
         _waitingCardsLoad();
+        _paintTypesButtons();
         setTimeout(function() {
             removeAllCards();
             _amountPokemonsShow(amount, name, type);
             _showPokemonsLeaked(amount, type);
-        }, 3000);
-        _paintTypesButtons();
+        }, 1000);
     }
 
     const removeAllCards = () => {
@@ -51,8 +51,6 @@ const Pokedex = (() => {
                         cards.appendChild(cardContainer);
                     }
                 });
-    
-                
             }
         }
     }
@@ -82,7 +80,6 @@ const Pokedex = (() => {
             data.name,
             data.types,
             data.stats,
-            data.hp,
             data.sprites
         );
 
@@ -94,7 +91,7 @@ const Pokedex = (() => {
                     #${pokemon.id.toString().padStart(3,0)}
                 </p>
                 <img src="${pokemon.sprites.other.dream_world.front_default}" alt="">
-                <h2 class="poke-name">${pokemon.name}</h2>
+                <h2 class="poke-name">${pokemon.name[0].toUpperCase() + pokemon.name.slice(1)}</h2>
                 <div class="types" data-type-${pokemon.id}>
 
                 </div>
@@ -118,7 +115,6 @@ const Pokedex = (() => {
         const divTypes = document.querySelector(`[data-type-${pokemon.id}]`);
         const cardTheme = document.querySelector(`[data-card-${pokemon.id}]`);
         _appednTypes(pokemon.types, divTypes);
-        //console.log(pokemon.types);
         const themeColor = typeColor[pokemon.types[0].type.name];
         _styleCard(themeColor, cardTheme, divTypes);
     }
@@ -152,7 +148,7 @@ const Pokedex = (() => {
             for (let i = 0; i < children.length; i++) {
                 if ((i % 2) !== 0) {
                     let colorTheme = typeColor[children[i].textContent.toLowerCase()];
-                    children[i].style.background = typeColor[children[i].textContent.toLowerCase()];
+                    children[i].style.background = typeColor[children[i].textContent.toLowerCase()];                  
                 }
                 
             }
@@ -173,35 +169,40 @@ const Pokedex = (() => {
     }
 
     return {
-        showPokedex,
-        removeAllCards
+        showPokedex
     }
 })();
 
-Pokedex.showPokedex(150, "null", "null");
-
 const form = document.querySelector("[data-form]");
 const imgHome = document.querySelector("[data-logo]");
-const btnAll = document.querySelector("[data-all]");
-const btlGrass = document.querySelector("[data-grass]");
-const btnPoison = document.querySelector("[data-poison]");
-const btnFire = document.querySelector("[data-fire]");
-const btnFlying = document.querySelector("[data-flying]");
-const btnWater = document.querySelector("[data-water]");
-const btnBug = document.querySelector("[data-bug]");
-const btnNormal = document.querySelector("[data-normal]");
-const btnElectric = document.querySelector("[data-electric]");
-const btnGround = document.querySelector("[data-ground]");
-const btnFairy = document.querySelector("[data-fairy]");
-const btnFighting = document.querySelector("[data-fighting]");
-const btnPsychic = document.querySelector("[data-psychic]");
-const btnRock = document.querySelector("[data-rock]");
-const btnIce = document.querySelector("[data-ice]");
-const btnGhost = document.querySelector("[data-ghost]");
-const btnDragon = document.querySelector("[data-dragon]");
+
+const addEventsToTypeButtons = () => {
+    const containerButtonsType = document.querySelector(".buttons-types");
+    if (containerButtonsType.hasChildNodes() )
+    {
+        const children = containerButtonsType.childNodes;
+
+        for (let i = 0; i < children.length; i++) {
+            if ((i % 2) !== 0) {
+                if (children[i].textContent == "All") {
+                    children[i].addEventListener("click", () => {
+                        Pokedex.showPokedex(150, "null", "null");
+                    })
+                } else {
+                    children[i].addEventListener("click", () => {
+                        Pokedex.showPokedex(150, "null", children[i].textContent.toLowerCase());
+                    })
+                }                
+            }            
+        }
+    }
+}
+
+addEventsToTypeButtons();
+Pokedex.showPokedex(150, "null", "null");
+
 
 imgHome.addEventListener("click", () => {
-    Pokedex.removeAllCards();
     Pokedex.showPokedex(150, "null", "null");
 });
 
@@ -209,85 +210,10 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
     const pokeName = document.querySelector("[data-input]").value;
     if (pokeName.length !== 0) {
-        Pokedex.removeAllCards();
         Pokedex.showPokedex(0, pokeName.toLowerCase(), "null");
     } else {
         alert('Por favor ingrese el nombre del Pokémon en la caja de texto.');
-        Pokedex.removeAllCards();
         Pokedex.showPokedex(150, "null", "null");
         return;
     }
-
-    this.submit();
-});
-
-btnAll.addEventListener("click", () => {
-    Pokedex.removeAllCards();
-    Pokedex.showPokedex(150, "null", "null");
-});
-
-btlGrass.addEventListener("click", () => {
-    Pokedex.removeAllCards();
-    Pokedex.showPokedex(150, "null", "grass");
-});
-
-btnPoison.addEventListener("click", () => {
-    Pokedex.removeAllCards();
-    Pokedex.showPokedex(150, "null", "poison");
-});
-btnFire.addEventListener("click", () => {
-    Pokedex.removeAllCards();
-    Pokedex.showPokedex(150, "null", "fire");
-});
-btnFlying.addEventListener("click", () => {
-    Pokedex.removeAllCards();
-    Pokedex.showPokedex(150, "null", "flying");
-});
-btnWater.addEventListener("click", () => {
-    Pokedex.removeAllCards();
-    Pokedex.showPokedex(150, "null", "water");
-});
-btnBug.addEventListener("click", () => {
-    Pokedex.removeAllCards();
-    Pokedex.showPokedex(150, "null", "bug");
-});
-btnNormal.addEventListener("click", () => {
-    Pokedex.removeAllCards();
-    Pokedex.showPokedex(150, "null", "normal");
-});
-btnElectric.addEventListener("click", () => {
-    Pokedex.removeAllCards();
-    Pokedex.showPokedex(150, "null", "electric");
-});
-btnGround.addEventListener("click", () => {
-    Pokedex.removeAllCards();
-    Pokedex.showPokedex(150, "null", "ground");
-});
-btnFairy.addEventListener("click", () => {
-    Pokedex.removeAllCards();
-    Pokedex.showPokedex(150, "null", "fairy");
-});
-btnFighting.addEventListener("click", () => {
-    Pokedex.removeAllCards();
-    Pokedex.showPokedex(150, "null", "fighting");
-});
-btnPsychic.addEventListener("click", () => {
-    Pokedex.removeAllCards();
-    Pokedex.showPokedex(150, "null", "psychic");
-});
-btnRock.addEventListener("click", () => {
-    Pokedex.removeAllCards();
-    Pokedex.showPokedex(150, "null", "rock");
-});
-btnIce.addEventListener("click", () => {
-    Pokedex.removeAllCards();
-    Pokedex.showPokedex(150, "null", "ice");
-});
-btnGhost.addEventListener("click", () => {
-    Pokedex.removeAllCards();
-    Pokedex.showPokedex(150, "null", "ghost");
-});
-btnDragon.addEventListener("click", () => {
-    Pokedex.removeAllCards();
-    Pokedex.showPokedex(150, "null", "dragon");
 });

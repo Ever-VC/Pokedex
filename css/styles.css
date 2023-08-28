@@ -501,6 +501,58 @@ label {
     color: #404060;
 }
 
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #111111bd;
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal--show {
+    opacity: 1;
+    pointer-events: unset;
+}
+
+.modal_container {
+    margin: auto;
+    width: 500px;
+    height: 700px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    display: grid;
+    place-items: center;
+    grid-auto-columns: 100%;
+    text-align: center;
+}
+
+.modal_container img {
+    width: 300px;
+}
+
+.modal_close {
+    text-decoration: none;
+    color: #fff;
+    background-color: #f26250;
+    padding: 5px 10px;
+    border: 1px solid;
+    border-radius: 10px;
+    display: inline-block;
+    font-weight: 300;
+    transition: background-color .3s;
+}
+
+.modal_close:hover {
+    cursor: pointer;
+    color: #f26250;
+    background-color: #fff;
+}
+
 .light {
     color: black;
     background-color: #ffffff;
