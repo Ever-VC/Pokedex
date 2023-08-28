@@ -14,6 +14,6 @@ export const typeColor = {
     poison: "#6c5ce7",
     psychic: "#a29bfe",
     rock: "#2d3436",
-    water: "#0190ff"
-
+    water: "#0190ff",
+    all: "#6A00AF"
 }
