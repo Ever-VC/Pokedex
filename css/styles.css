@@ -520,26 +520,134 @@ label {
 
 .modal_container {
     margin: auto;
-    width: 500px;
-    height: 700px;
+    width: 470px;
+    height: 800px;
     background-color: #fff;
     border-radius: 10px;
     padding: 30px;
     display: grid;
+    grid-template-areas: 
+        "modal-id"
+        "modal-main"
+        "about"
+    ;
     place-items: center;
-    grid-auto-columns: 100%;
+    grid-template-rows: 1fr 3fr 4fr;
+    /* grid-auto-columns: 100%; */
     text-align: center;
 }
 
+.modal-id {
+    grid-area: modal-id;
+    width: 100%;
+}
+
+.modal-main {
+    grid-area: modal-main;
+    width: 100%;
+}
+
+.modal-about {
+    width: 100%;
+    height: 100%;
+    grid-area: about;
+    display: grid;
+    grid-template-areas: 
+        "nav"
+        "information"
+    ;
+    grid-template-rows: 1fr 4fr;
+    place-items: center;
+}
+
 .modal_container img {
-    width: 300px;
+    width: 150px;
+    margin-bottom: 100px;
+}
+
+.nav {
+    grid-area: nav;
+	margin: auto;
+	position: relative;
+	width: 410px;
+	height: 50px;
+	background-color: #34495e;
+	border-radius: 8px;
+	font-size: 0;
+}
+
+.nav a {
+	line-height: 50px;
+	height: 100%;
+	font-size: 15px;
+	display: inline-block;
+	position: relative;
+	z-index: 1;
+	text-decoration: none;
+	text-transform: uppercase;
+	text-align: center;
+	color: white;
+	cursor: pointer;
+}
+
+.nav .animation {
+	position: absolute;
+	height: 100%;
+	top: 0;
+	z-index: 0;
+	transition: all .5s ease 0s;
+	border-radius: 8px;
+}
+
+.nav a:nth-child(1) {
+	width: 100px;
+}
+
+.nav a:nth-child(2) {
+	width: 110px;
+}
+
+.nav a:nth-child(3) {
+	width: 100px;
+}
+
+.nav a:nth-child(4) {
+	width: 100px;
+}
+
+.nav a:nth-child(1):hover~.animation {
+	width: 100px;
+	left: 0;
+	background-color: #1abc9c;
+}
+
+.nav a:nth-child(2):hover~.animation {
+	width: 110px;
+	left: 100px;
+	background-color: #e74c3c;
+}
+
+.nav a:nth-child(3):hover~.animation {
+	width: 100px;
+	left: 210px;
+	background-color: #3498db;
+}
+
+.nav a:nth-child(4):hover~.animation {
+	width: 100px;
+	left: 310px;
+	background-color: #9b59b6;
+}
+
+.information {
+    grid-area: information;
 }
 
 .modal_close {
     text-decoration: none;
     color: #fff;
     background-color: #f26250;
-    padding: 5px 10px;
+    padding: 10px 15px;
     border: 1px solid;
     border-radius: 10px;
     display: inline-block;
@@ -551,14 +659,4 @@ label {
     cursor: pointer;
     color: #f26250;
     background-color: #fff;
-}
-
-.light {
-    color: black;
-    background-color: #ffffff;
-}
-
-.dark {
-    color: #fff;
-    background-color: #3a325611;
 }
