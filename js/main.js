@@ -3,14 +3,15 @@ import { typeColor } from "./colors.js";
 
 const Pokedex = (() => {
     'use strict';
+    let _amount = 150;
 
-    const showPokedex = (amount, name) => {
+    const showPokedex = (name) => {
         _addEventsToTypeButtons();
         _waitingCardsLoad();
         _paintTypesButtons();
         setTimeout(function() {
             _removeAllCards();
-            _amountPokemonsShow(amount, name);
+            _amountPokemonsShow(name);
         }, 1000);
     }
 
@@ -34,11 +35,11 @@ const Pokedex = (() => {
                 if ((i % 2) !== 0) {
                     if (children[i].textContent == "All") {
                         children[i].addEventListener("click", () => {
-                            _amountPokemonsShow(150, "null");
+                            _amountPokemonsShow("null");
                         })
                     } else {
                         children[i].addEventListener("click", () => {
-                            _showPokemonsLeaked(150, children[i].textContent.toLowerCase());
+                            _showPokemonsLeaked(children[i].textContent.toLowerCase());
                         })
                     }                
                 }  
@@ -200,11 +201,11 @@ const Pokedex = (() => {
 
     }
 
-    const _showPokemonsLeaked = async(amount, type) => {
+    const _showPokemonsLeaked = async(type) => {
         _removeAllCards();
         const cards = document.querySelector("[data-cards]");
         if (type !== "null") {
-            for (let i = 1; i <= amount; i++) {
+            for (let i = 1; i <= _amount; i++) {
                 const data = await _fetchPokemon(i);
                 data.types.forEach(item => {
                     if (item.type.name === type) {
@@ -219,17 +220,17 @@ const Pokedex = (() => {
         }
     }
 
-    const _amountPokemonsShow = (amount, name) => {
+    const _amountPokemonsShow = (name) => {
         _removeAllCards();
         const cards = document.querySelector("[data-cards]");
-        if (name !== "null" && amount === 0) {
+        if (name !== "null") {
             const cardContainer = document.createElement('article');
             cardContainer.classList.add("card-container");
             _drawPokemonCard(name, cardContainer);
             cards.appendChild(cardContainer);
             _addEventsToCards();
-        } else if (amount > 0) {
-            for (let i = 1; i <= amount; i++) {
+        } else {
+            for (let i = 1; i <= _amount; i++) {
                 const cardContainer = document.createElement('article');
                 cardContainer.classList.add("card-container");
                 _drawPokemonCard(i, cardContainer);
@@ -326,10 +327,10 @@ const Pokedex = (() => {
 const form = document.querySelector("[data-form]");
 const imgHome = document.querySelector("[data-logo]");
 
-Pokedex.showPokedex(150, "null");
+Pokedex.showPokedex("null");
 
 imgHome.addEventListener("click", () => {
-    Pokedex.showPokedex(150, "null");
+    Pokedex.showPokedex("null");
 });
 
 form.addEventListener('submit', (e) => {
@@ -339,7 +340,7 @@ form.addEventListener('submit', (e) => {
         Pokedex.showPokedex(0, pokeName.toLowerCase());
     } else {
         alert('Por favor ingrese el nombre del Pokémon en la caja de texto.');
-        Pokedex.showPokedex(150, "null");
+        Pokedex.showPokedex("null");
         return;
     }
 });
