@@ -63,13 +63,11 @@ const Pokedex = (() => {
 
     const _addEventsToCards = () => {
         const cardsContainer = document.querySelector("[data-cards]");
-        console.log(cardsContainer);
         if (cardsContainer.hasChildNodes()) {
             const children = cardsContainer.childNodes;
     
             for (let i = 0; i < children.length; i++) {     
                 children[i].addEventListener("click", () => {
-                    console.log(children[i])
                     children[i].querySelectorAll(".card .poke-name").forEach((p) => {
                         _createModal(p.textContent.toLowerCase());
                     })
@@ -91,7 +89,7 @@ const Pokedex = (() => {
 
         let cardModal = '';
         cardModal += `
-        <article class="modal_container blur-in" data-modalCard-${pokemon.id}>
+        <article class="modal_container blur-in blur-in-expand" data-modalCard-${pokemon.id}>
             <div class="modal-id">
                 <p class="hp">
                     <span>HP</span>
@@ -106,13 +104,13 @@ const Pokedex = (() => {
             </div>
             <div class="modal-about">
                 <div class="nav">
-                    <a href="#">About</a>
-                    <a href="#">Base Stats</a>
-                    <a href="#">Evolution</a>
-                    <a href="#">Moves</a>
+                    <a href="#" data-about>About</a>
+                    <a href="#" data-stats>Base Stats</a>
+                    <a href="#" data-evolutions>Evolution</a>
+                    <a href="#" data-moves>Moves</a>
                     <div class="animation start-home"></div>
                 </div>
-                <div class="information">
+                <div class="information" data-modalInfo>
                     
                 </div>
             </div>
@@ -130,26 +128,74 @@ const Pokedex = (() => {
         const themeColor = typeColor[pokemon.types[0].type.name];
         _styleCard(themeColor, cardTheme, divTypes);
 
-        const btnCloseModal = document.querySelector("[data-modalClose]");
-        btnCloseModal.addEventListener("click", () => {
-            modalSection.classList.remove("modal--show");
-            modalSection.removeChild(cardTheme);
-        })
+        loadInformation(pokemon, "about");
+
+        //---- HACIENDO PRUEBAS ---
+
+        if (modalSection.classList.contains("modal--show")){
+
+            window.addEventListener('click', function(e) {
+                /*2. Si el article [data-modalCard-${pokemon.id}] contiene a e. target*/
+            
+                console.log("Si contiene la clase modal--show");
+                if (!(cardTheme.contains(e.target))) {
+                    modalSection.classList.remove("modal--show");
+                    while ( modalSection.childNodes.length >= 1 ){
+                        modalSection.removeChild( modalSection.firstChild );
+                    }
+                    
+                } /* else {
+                    alert("Clicked outside Box");
+                    console.log(e.target);
+                    
+                } */
+                
+            })
+            
+            const btnCloseModal = document.querySelector("[data-modalClose]");
+            btnCloseModal.addEventListener("click", () => {
+                modalSection.classList.remove("modal--show");
+                modalSection.removeChild(cardTheme);
+            })
+        }
+        
+        
     }
 
     const _paintTypesButtons = () => {
         const containerButtonsType = document.querySelector(".buttons-types");
-        if (containerButtonsType.hasChildNodes() )
+        if ( containerButtonsType.hasChildNodes() )
         {
             const children = containerButtonsType.childNodes;
 
             for (let i = 0; i < children.length; i++) {
                 if ((i % 2) !== 0) {
-                    let colorTheme = typeColor[children[i].textContent.toLowerCase()];
                     children[i].style.background = typeColor[children[i].textContent.toLowerCase()];                  
                 }
                 
             }
+        }
+
+    }
+
+    const loadInformation = (pokemon, typeInfo) => {
+        const divInformation = document.querySelector("[data-modalInfo]");
+        let information = '';
+
+        if (typeInfo == "about") {
+            console.log("Entroooo")
+            console.log(divInformation);
+            information += `
+                <pre>Species      <span>${pokemon.stats[5].base_stat}</span></pre>
+                <pre>Height       <span>2'3*(0.70 cm)</span></pre>
+                <pre>Weight       <span>15.2 lbs (6.9 kg)</span></pre>
+                <pre>Abilities    <span>Overgrow Chlorophyl</span></pre>
+                <h2>Breending</h2>
+                <pre>Gender       <span>87.5%    12.6%</span></pre>
+                <pre>Egg Groups   <span>Monster</span></pre>
+                <pre>Egg Cycle    <span>Grass</span></pre>
+            `;
+            divInformation.innerHTML = information;
         }
 
     }

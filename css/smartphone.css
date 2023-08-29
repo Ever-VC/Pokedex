@@ -39,4 +39,15 @@
     .load-container {
         margin-top: -40px;
     }
+
+    .modal_container {
+        width: 400px;
+        height: 600px;
+        padding: 20px;
+    }
+
+    .modal-id {
+        width: calc(100% - 80px);
+        
+    }
 }
