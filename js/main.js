@@ -9,9 +9,11 @@ const Pokedex = (() => {
         _addEventsToTypeButtons();
         _waitingCardsLoad();
         _paintTypesButtons();
+        
         setTimeout(function() {
             _removeAllCards();
             _amountPokemonsShow(name);
+            ///_addEventsToCards();
         }, 1000);
     }
 
@@ -27,6 +29,31 @@ const Pokedex = (() => {
 
     const _addEventsToTypeButtons = () => {
         const containerButtonsType = document.querySelector(".buttons-types");
+        const form = document.querySelector("[data-form]");
+        const imgHome = document.querySelector("[data-logo]");
+
+
+        imgHome.addEventListener("click", () => {
+            _waitingCardsLoad();
+            setTimeout(function() {
+                _amountPokemonsShow("null");
+            }, 1000);
+        });
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const pokeName = document.querySelector("[data-input]").value;
+            if (pokeName.length !== 0) {
+                _waitingCardsLoad();
+                setTimeout(function() {
+                    _amountPokemonsShow(pokeName.toLowerCase());
+                }, 1000);
+                document.querySelector("[data-input]").value = "";
+            } else {
+                alert('Por favor ingrese el nombre del Pokémon en la caja de texto.');
+            }
+        });
+
         if (containerButtonsType.hasChildNodes() )
         {
             const children = containerButtonsType.childNodes;
@@ -35,11 +62,17 @@ const Pokedex = (() => {
                 if ((i % 2) !== 0) {
                     if (children[i].textContent == "All") {
                         children[i].addEventListener("click", () => {
-                            _amountPokemonsShow("null");
+                            _waitingCardsLoad();
+                            setTimeout(function() {
+                                _amountPokemonsShow("null");
+                            }, 1000);
                         })
                     } else {
                         children[i].addEventListener("click", () => {
-                            _showPokemonsLeaked(children[i].textContent.toLowerCase());
+                            _waitingCardsLoad();
+                            setTimeout(function() {
+                                _showPokemonsLeaked(children[i].textContent.toLowerCase());
+                            }, 1000);
                         })
                     }                
                 }  
@@ -133,34 +166,45 @@ const Pokedex = (() => {
 
         //---- HACIENDO PRUEBAS ---
 
-        if (modalSection.classList.contains("modal--show")){
+        const btnCloseModal = document.querySelector("[data-modalClose]");
 
-            window.addEventListener('click', function(e) {
-                /*2. Si el article [data-modalCard-${pokemon.id}] contiene a e. target*/
+        /* window.addEventListener('click', function(e) {
+            /*2. Si el article [data-modalCard-${pokemon.id}] contiene a e. target
             
-                console.log("Si contiene la clase modal--show");
+            if (modalSection.classList.contains("modal--show")) {
+                //console.log(cardTheme);
+
+                console.log(cardTheme.contains(e.target));
+                console.log(e.target);
                 if (!(cardTheme.contains(e.target))) {
+                    /* alert("Afuera");
+                    //console.log("Fue afuera")
+                    //console.log(e.target);
                     modalSection.classList.remove("modal--show");
                     while ( modalSection.childNodes.length >= 1 ){
                         modalSection.removeChild( modalSection.firstChild );
                     }
                     
-                } /* else {
-                    alert("Clicked outside Box");
-                    console.log(e.target);
-                    
-                } */
-                
-            })
+                }else if (btnCloseModal.contains(e.target)) {
+                    //console.log("FUE EN EL BOTON DE CERRAR")
+                    //console.log(e.target);
+                    modalSection.classList.remove("modal--show");
+                    while ( modalSection.childNodes.length >= 1 ){
+                        modalSection.removeChild( modalSection.firstChild );
+                    }
+                }
+                /* else {
+                    console.log("Fue adentro")
+                } 
+            }
             
-            const btnCloseModal = document.querySelector("[data-modalClose]");
-            btnCloseModal.addEventListener("click", () => {
-                modalSection.classList.remove("modal--show");
-                modalSection.removeChild(cardTheme);
-            })
-        }
-        
-        
+            
+        }) */
+
+        btnCloseModal.addEventListener("click", () => {
+            modalSection.classList.remove("modal--show");
+            modalSection.removeChild(cardTheme);
+        })
     }
 
     const _paintTypesButtons = () => {
@@ -184,8 +228,6 @@ const Pokedex = (() => {
         let information = '';
 
         if (typeInfo == "about") {
-            console.log("Entroooo")
-            console.log(divInformation);
             information += `
                 <pre>Species      <span>${pokemon.stats[5].base_stat}</span></pre>
                 <pre>Height       <span>2'3*(0.70 cm)</span></pre>
@@ -324,23 +366,5 @@ const Pokedex = (() => {
     }
 })();
 
-const form = document.querySelector("[data-form]");
-const imgHome = document.querySelector("[data-logo]");
-
 Pokedex.showPokedex("null");
 
-imgHome.addEventListener("click", () => {
-    Pokedex.showPokedex("null");
-});
-
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const pokeName = document.querySelector("[data-input]").value;
-    if (pokeName.length !== 0) {
-        Pokedex.showPokedex(0, pokeName.toLowerCase());
-    } else {
-        alert('Por favor ingrese el nombre del Pokémon en la caja de texto.');
-        Pokedex.showPokedex("null");
-        return;
-    }
-});

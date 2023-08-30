@@ -41,13 +41,20 @@
     }
 
     .modal_container {
-        width: 400px;
+        width: 350px;
         height: 600px;
         padding: 20px;
     }
 
-    .modal-id {
-        width: calc(100% - 80px);
-        
+    .modal_container img {
+        width: 100px;
+    }
+
+    .modal-main .types {
+        margin: 20px 0 10px;
+    }
+
+    .nav {
+        width: 310px;
     }
 }
