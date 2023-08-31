@@ -199,7 +199,7 @@ const Pokedex = (() => {
         //recibe como parámetros el color, la card a la cual se le asignará el color y el div que contiene los tipos 
         //para asignarles el diseño correspondiente
 
-        loadInformation(pokemon, "about");//Hace el llamado a la función que carga la información hacerca del pokémon
+        _loadInformation(pokemon, "about");//Hace el llamado a la función que carga la información hacerca del pokémon
         const btnAbout = document.querySelector("[data-about]");//Accede al botón que lleva al apartado de "about"
         const btnStats = document.querySelector("[data-stats]");//Accede al botón que lleva al apartado de "stats"
         const btnMoves = document.querySelector("[data-moves]");//Accede al botón que lleva al apartado de "moves"
@@ -214,7 +214,7 @@ const Pokedex = (() => {
             animation.style.left = "0";//Le asigna la posición desde dónde debe partir el div de animación
             animation.style.background = "#1abc9c";//Le asigna el color que debe contener el div
             animation.style.width = "100px";//Le asigna el ancho que debe tener el div
-            loadInformation(pokemon, "about");//Llama a la función que carga los datos que corresponden al apartado
+            _loadInformation(pokemon, "about");//Llama a la función que carga los datos que corresponden al apartado
         })
 
         btnStats.addEventListener("click", (e) => {
@@ -222,7 +222,7 @@ const Pokedex = (() => {
             animation.style.left = "100px";//Le asigna la posición desde dónde debe partir el div de animación
             animation.style.background = "#e74c3c";//Le asigna el color que debe contener el div
             animation.style.width = "100px";//Le asigna el ancho que debe tener el div
-            loadInformation(pokemon, "stats");//Llama a la función que carga los datos que corresponden al apartado
+            _loadInformation(pokemon, "stats");//Llama a la función que carga los datos que corresponden al apartado
         })
 
         btnMoves.addEventListener("click", (e) => {
@@ -230,7 +230,7 @@ const Pokedex = (() => {
             animation.style.left = "200px";//Le asigna la posición desde dónde debe partir el div de animación
             animation.style.background = "#9b59b6";//Le asigna el color que debe contener el div
             animation.style.width = "110px";//Le asigna el ancho que debe tener el div
-            loadInformation(pokemon, "moves");//Llama a la función que carga los datos que corresponden al apartado         
+            _loadInformation(pokemon, "moves");//Llama a la función que carga los datos que corresponden al apartado         
         })
 
         const btnCloseModal = document.querySelector("[data-modalClose]");//Accede al botón para cerrar el modal
@@ -261,7 +261,7 @@ const Pokedex = (() => {
 
     }
 
-    const loadInformation = async (pokemon, typeInfo) => {
+    const _loadInformation = async (pokemon, typeInfo) => {
         //Recibe el pokémon que contiene todos lo datos a utilizar
         //también recibe el titpo de información que se desea mostrar (depende del botón al que se le haya dado clik)
         const divInformation = document.querySelector("[data-modalInfo]");//Accede al apartado que muestra la información del pokémon en el modal
@@ -299,12 +299,12 @@ const Pokedex = (() => {
                         <p>Speed:</p>
                     </div>
                     <div class="data-value">
-                        <div class="bar"><div style="width: ${(pokemon.stats[0].base_stat)/200 * 100}%" class="hp-value">${pokemon.stats[0].base_stat}%</div></div>
-                        <div class="bar"><div style="width: ${(pokemon.stats[1].base_stat)/200 * 100}%" class="hp-value">${pokemon.stats[1].base_stat}%</div></div>
-                        <div class="bar"><div style="width: ${(pokemon.stats[2].base_stat)/200 * 100}%" class="hp-value">${pokemon.stats[2].base_stat}%</div></div>
-                        <div class="bar"><div style="width: ${(pokemon.stats[3].base_stat)/200 * 100}%" class="hp-value">${pokemon.stats[3].base_stat}%</div></div>
-                        <div class="bar"><div style="width: ${(pokemon.stats[4].base_stat)/200 * 100}%" class="hp-value">${pokemon.stats[4].base_stat}%</div></div>
-                        <div class="bar"><div style="width: ${(pokemon.stats[5].base_stat)/200 * 100}%" class="hp-value">${pokemon.stats[5].base_stat}%</div></div>
+                        <div class="bar"><div style="width: ${(pokemon.stats[0].base_stat)/200 * 100}%" class="hp-value">${pokemon.stats[0].base_stat}</div></div>
+                        <div class="bar"><div style="width: ${(pokemon.stats[1].base_stat)/200 * 100}%" class="hp-value">${pokemon.stats[1].base_stat}</div></div>
+                        <div class="bar"><div style="width: ${(pokemon.stats[2].base_stat)/200 * 100}%" class="hp-value">${pokemon.stats[2].base_stat}</div></div>
+                        <div class="bar"><div style="width: ${(pokemon.stats[3].base_stat)/200 * 100}%" class="hp-value">${pokemon.stats[3].base_stat}</div></div>
+                        <div class="bar"><div style="width: ${(pokemon.stats[4].base_stat)/200 * 100}%" class="hp-value">${pokemon.stats[4].base_stat}</div></div>
+                        <div class="bar"><div style="width: ${(pokemon.stats[5].base_stat)/200 * 100}%" class="hp-value">${pokemon.stats[5].base_stat}</div></div>
                     </div>
                 </div>
             `;

@@ -126,5 +126,6 @@
 
     .info-moves p {
         font-size: 14px;
+        padding: 0;
     }
 }
