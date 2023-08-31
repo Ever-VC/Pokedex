@@ -17,7 +17,7 @@
             "logo"
             "search"
         ;
-        place-items: center;
+        justify-content: center;
     }
 
     .header-top img {
