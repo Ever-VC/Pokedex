@@ -4,7 +4,12 @@
     box-sizing: border-box;
     font-family: monospace;
 }
-
+body{
+    background-image: url('../images/fondo4.jpeg');
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
 .home {
     top: 90%;
     position: fixed;
