@@ -1,6 +1,11 @@
 @media only screen and (max-width: 890px) {
     header {
+        width: 90%;
         height: 200px;
+    }
+
+    main  {
+        width: 90%;
     }
 
     .header-top {
@@ -48,6 +53,24 @@
         margin-top: -40px;
     }
 
+    .cards {
+        padding: 30px 0;
+    }
+
+    .card {
+        padding: 20px 10px;
+    }
+
+    .card img {
+        text-align: center;
+        margin-left: 60px
+    }
+
+    .card-container {
+        width: 300px;
+        height: 480px;
+    }
+
     .modal_container {
         width: 350px;
         height: 650px;
@@ -89,11 +112,11 @@
     }
 
     .home {
-        margin-left: 20px;
+        margin-left: 15px;
     }
 
     .home img {
-        width: 30px;
+        width: 35px;
     }
 
     .info-moves {
