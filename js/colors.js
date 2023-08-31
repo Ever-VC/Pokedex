@@ -1,4 +1,5 @@
 export const typeColor = {
+    //Exporta el objeto con la paleta de colores
     bug: "#26de81",
     dragon: "#FF5733",
     electric: "#fed330",

@@ -5,25 +5,25 @@
     font-family: monospace;
 }
 
-body {
-    /* background: linear-gradient(to bottom, rgb(140, 122, 122) 0%, rgb(175, 135, 124) 65%, rgb(175, 135, 124) 100%) fixed;
-    background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/coc-background.jpg") no-repeat center center fixed;
-    background-size: cover;
-    background-color: #3a3256b8; */
-    background-color: seashell; 
-    display: grid;
-    grid-template-areas: 
-        ". header ."
-        ". main ."
-    ;
-    grid-template-columns: 1fr 4fr 1fr;
-    grid-template-rows: auto;
-    place-items: center;
+.home {
+    top: 90%;
+    position: fixed;
+    margin-left: 90px;
+}
+
+.home:hover {
+    cursor: pointer;
+}
+
+.home img {
+    width: 70px;
+    padding: 5px;
+    padding-top: 7px;
 }
 
 header {
     grid-area: header;
-    width: 93%;
+    width: 70%;
     height: 230px;
     padding: 20px;    
     display: grid;
@@ -33,7 +33,6 @@ header {
     ;
     grid-template-columns: auto;
     background-color: #018aa9;
-    /* background: linear-gradient(to right, #00B4DB, #0083B0); */
     color: #ebfffc;
     margin-top: 30px;
     border-radius: 20px;
@@ -115,6 +114,7 @@ header h1 {
     border-radius: 20px;
     color: #fff;
     border: none;
+    font-size: 20px;
 }
 
 .button-type:hover {
@@ -125,76 +125,8 @@ header h1 {
     display: none;
 }
 
-/* .div-search {
-    width: 90%;
-}
-
-.container-suggestions {
-    max-height: 280px;
-    opacity: 0;
-    pointer-events: none;
-    padding: 0;
-    overflow-y: auto;
-    background-color: #00ff59;
-}
-
-.container-suggestions li {
-    list-style: none;
-    width: 100%;
-    padding: 8px 12px;
-    border-radius: 5px;
-    display: none;
-}
-
-.search.active .container-suggestions {
-    opacity: 1;
-    pointer-events: auto;
-    padding: 10px 8px;
-}
-
-.search.active .container-suggestions li{
-    display: block;
-}
-
-.mode {
-    grid-area: mode;
-    width: 100%;
-}
-
-.mode input[type="checkbox"] {
-    appearance: none;
-    height: 50px;
-    width: 120px;
-    background-color: #3a3256;
-    position: absolute;
-    transform: translateX(95%);
-    top: 40px;
-    border-radius: 30px;
-}
-
-.mode input[type="checkbox"]::before {
-    position: absolute;
-    content: "";
-    height: 40px;
-    width: 40px;
-    background-color: #7d7890;
-    border-radius: 50%;
-    top: 5px;
-    left: 5px;
-}
-
-.mode input[type="checkbox"] {
-    cursor: pointer;
-}
-
-.mode input[type="checkbox"]:checked::before {
-    background-color: #fff;
-    left: 75px;
-    box-shadow: 0 0 20px 5px rgba(196, 241, 255, 0.8);
-} */
-
 main {
-    width: 100%;
+    width: 80%;
     grid-area: main;
     display: grid;
     grid-template-areas: 
@@ -203,7 +135,8 @@ main {
     grid-template-columns: auto;
     grid-template-rows: auto;
     min-height: calc(100vh - 130px);
-    margin: 0;
+    margin: 0 auto;
+    
 }
 
 .blur-in { 
@@ -218,53 +151,6 @@ main {
         filter:blur(12px);opacity:0
     }
 }
-
-/* .filters {
-    grid-area: filters;
-    width: 100%;
-    padding: 20px 0px 0px 40px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: #e8e8e80c;
-    color: #fff;
-}
-
-.filters h2 {
-    font-size: 25px;
-}
-
-.filters hr {
-    margin-bottom: 30px;
-}
-
-.filters ul {
-    list-style: none;
-}
-
-.filters ul li {
-    margin-bottom: 15px;
-}
-
-.checkbox {
-    height: 15px;
-    width: 15px;
-    background-color: #d5d5d5;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.checkbox:checked {
-    accent-color: #7d2ae8;
-}
-
-.checkbox:checked {
-    color: #7d2ae8;
-}
-
-label {
-    font-size: 22px;
-    font-family: 'Poppins', sans-serif;
-    cursor: pointer;
-} */
 
 .cards {
     width: 100%;
@@ -479,7 +365,7 @@ label {
 }
 
 .hp span, .types span {
-    font-size: 12px;
+    font-size: 18px;
     letter-spacing: 0.4px;
     font-weight: 600;
 }
@@ -530,10 +416,10 @@ label {
         "modal-id"
         "modal-main"
         "about"
+        "modalC"
     ;
     place-items: center;
-    grid-template-rows: 1fr 3fr 4fr;
-    /* grid-auto-columns: 100%; */
+    grid-template-rows: 1fr 2fr 2fr 1fr;
     text-align: center;
 }
 
@@ -563,7 +449,7 @@ label {
 .modal_container img {
     width: 150px;
     margin-bottom: 100px;
-    max-height: 180px;
+    max-height: 150px;
 }
 
 .nav {
@@ -580,7 +466,7 @@ label {
 .nav a {
 	line-height: 30px;
 	height: 100%;
-	font-size: 15px;
+	font-size: 18px;
 	display: inline-block;
 	position: relative;
 	z-index: 1;
@@ -612,39 +498,12 @@ label {
 	width: 100px;
 }
 
-.nav a:nth-child(4) {
-	width: 100px;
-}
-
-.nav a:nth-child(1):hover~.animation {
-	width: 100px;
-	left: 0;
-	background-color: #1abc9c;
-}
-
-.nav a:nth-child(2):hover~.animation {
-	width: 110px;
-	left: 100px;
-	background-color: #e74c3c;
-}
-
-.nav a:nth-child(3):hover~.animation {
-	width: 100px;
-	left: 210px;
-	background-color: #3498db;
-}
-
-.nav a:nth-child(4):hover~.animation {
-	width: 100px;
-	left: 310px;
-	background-color: #9b59b6;
-}
-
 .information {
     grid-area: information;
 }
 
 .modal_close {
+    grid-area: modalC;
     text-decoration: none;
     color: #fff;
     background-color: #f26250;
@@ -677,23 +536,85 @@ label {
 
 .information {
     width: 100%;
+    height: 100%;
     margin: auto;
     text-align: left;
     letter-spacing: 1px;
     font-family: monospace;
+    padding: 10px;
 }
 
 .information h2 {
     margin: 10px 0;
 }
 
-.information pre {
+.information p {
     color: rgb(108, 117, 126);
-    margin: 3px;
-    font-size: 13px;
+    font-size: 18px;
+    margin: 5px;
     
 }
 
-.information pre span {
+.information p span {
     color: black;
+    margin-left: 50px;
+}
+
+.information p .abilities {
+    margin-left: 20px;
+}
+
+.information p .base-experience {
+    margin-left: 13px;
+}
+
+.info-data {
+    display: flex;
+    width: 100%;
+}
+
+.data-name {
+    width: 130px;
+}
+
+.data-value {
+    width: 100%;
+    display: grid;
+}
+
+.stat {
+    display: flex;
+}
+
+.bar {
+    width: 100%;
+    background-color: lightgray;
+    border-radius: 20px;
+    margin-bottom: 8px;
+}
+
+.bar .hp-value {
+    height: 100%;
+    display: grid;
+    float: left;
+    place-items: center;
+    background-color: rgb(0, 255, 170);
+    border-radius: 20px;
+    font-size: 18px;
+}
+
+.info-moves {
+    height: 200px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.info-moves p {
+    background-color: #9b59b6;
+    padding: 5px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
 }

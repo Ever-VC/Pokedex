@@ -9,6 +9,7 @@
     header img {
         width: 130px;
     }
+
     .header-top {
         grid-template-areas: 
             "logo"
@@ -42,12 +43,12 @@
 
     .modal_container {
         width: 350px;
-        height: 600px;
+        height: 700px;
         padding: 20px;
     }
 
     .modal_container img {
-        width: 100px;
+        width: 90px;
     }
 
     .modal-main .types {
@@ -56,5 +57,38 @@
 
     .nav {
         width: 310px;
+    }
+
+    .nav a {
+        font-size: 12px;
+    }
+
+    .information p {
+        font-size: 12px;
+    }
+
+    .bar {
+        height: 17px;
+    }
+
+    .bar .hp-value {
+        font-size: 13px;
+    }
+
+    .home {
+        margin-left: 20px;
+    }
+
+    .home img {
+        width: 60px;
+    }
+
+    .info-moves {
+        padding: 10px;
+        height: 120px;
+    }
+
+    .info-moves p {
+        font-size: 13px;
     }
 }
