@@ -19,25 +19,33 @@ body{
 
 .home:hover {
     cursor: pointer;
+    /* animation: animate 4s linear infinite; */
+    animation:rotate-center 0.4s
+}
+
+/* .rotate-center {
+    animation:rotate-center 0.4s
+}  */
+
+@keyframes rotate-center {
+    0% {
+        transform:rotate(0)
+    }
+    100% {
+        transform:rotate(360deg)
+    }
 }
 
 .home img {
-    width: 70px;
+    width: 50px;
     padding: 5px;
     padding-top: 7px;
 }
 
 header {
-    grid-area: header;
     width: 70%;
     height: 230px;
-    padding: 20px;    
-    display: grid;
-    grid-template-areas: 
-        "headerTop"
-        "types"
-    ;
-    grid-template-columns: auto;
+    padding: 20px; 
     background-color: #018aa9;
     color: #ebfffc;
     margin-top: 30px;
@@ -46,17 +54,8 @@ header {
 
 .header-top {
     width: 100%;
-    grid-area: headerTop;
-    display: grid;
-    grid-template-areas: 
-        "logo search ."
-    ;
-    grid-template-columns: 1fr 2fr 1fr;
-}
-
-.logo {
-    grid-area: logo;
     display: flex;
+    align-items: center;
 }
 
 header img {
@@ -74,39 +73,31 @@ header h1 {
 
 .search {
     width: 100%;
-    grid-area: search;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
 
 .search input {
-    width: 100%;
+    width: 50%;
     border: 0;
     outline: 0;
     background: #ebfffc;
     color: #555;
     padding: 10px 25px;
-    height: 60px;
-    border-radius: 30px;
-    flex: 1;
-    margin-right: 16px;
+    height: 50px;
+    border-radius: 30px;    
     font-size: 18px;
 }
 
 .search button {
     border: 0;
-    outline: 0;
     background: #ebfffc;
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    height: 50px;
     cursor: pointer;
 }
 
 .search button img {
     width: 20px;
-    margin: 0 20px;
+    margin: 0 15px;
 }
 
 .buttons-types {
@@ -116,11 +107,11 @@ header h1 {
 
 .button-type {
     padding: 5px 20px;
-    margin-top: 10px;
+    margin-top: 20px;
     border-radius: 20px;
     color: #fff;
     border: none;
-    font-size: 20px;
+    font-size: 17px;
 }
 
 .button-type:hover {
@@ -371,12 +362,13 @@ main {
 }
 
 .hp span, .types span {
-    font-size: 18px;
+    font-size: 14px;
     letter-spacing: 0.4px;
     font-weight: 600;
 }
 
 .types span {
+    font-size: 18px;
     padding: 5px 20px;
     border-radius: 20px;
     color: #fff;

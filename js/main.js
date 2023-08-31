@@ -36,6 +36,14 @@ const Pokedex = (() => {
         const containerButtonsType = document.querySelector(".buttons-types");//Accede al "section" que contiene los botones de filtrado
         const form = document.querySelector("[data-form]");//Accede al formulario de input (para buscar un Pokémon específico)
         const imgHome = document.querySelector("[data-logo]");//Accede al logotipo
+        const btnGTop = document.querySelector("[data-goTop]");
+
+        btnGTop.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            })
+        })
 
         imgHome.addEventListener("click", () => {
             //Cada vez que se le dá click al logotipo se ejecuta lo siguiente....
@@ -156,8 +164,7 @@ const Pokedex = (() => {
         <article class="modal_container blur-in blur-in-expand" data-modalCard-${pokemon.id}>
             <div class="modal-id">
                 <p class="hp">
-                    <span>HP</span>
-                    #${pokemon.id.toString().padStart(3,0)}
+                    <span>HP #${pokemon.id.toString().padStart(3,0)}</span>
                 </p>
             </div>
             <div class="modal-main">
@@ -399,8 +406,7 @@ const Pokedex = (() => {
             card += `
                 <div class="card blur-in" data-card-${pokemon.id}>
                     <p class="hp">
-                        <span>HP</span>
-                        #${pokemon.id.toString().padStart(3,0)}
+                        <span>HP #${pokemon.id.toString().padStart(3,0)}</span>
                     </p>
                     <img src="${pokemon.sprites.other.dream_world.front_default}" alt="">
                     <h2 class="poke-name">${pokemon.name[0].toUpperCase() + pokemon.name.slice(1)}</h2>

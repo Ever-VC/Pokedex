@@ -1,25 +1,32 @@
 @media only screen and (max-width: 890px) {
     header {
         height: 200px;
-        grid-template-areas: 
-            "headerTop"
-        ;
-        grid-template-columns: auto;
-    }
-    header img {
-        width: 130px;
     }
 
     .header-top {
+        grid-area: headerTop;
+        width: auto;
+        height: 100%;
+        display: grid;
         grid-template-areas: 
             "logo"
             "search"
         ;
-        grid-template-columns: auto;
+        place-items: center;
+    }
+
+    .header-top img {
+        grid-area: logo;
+        width: 130px;
+    }
+
+    .search {
+        grid-area: search;
     }
 
     .search input {
         height: 30px;
+        width: 80%;
     }
 
     .search button {
@@ -86,7 +93,7 @@
     }
 
     .home img {
-        width: 60px;
+        width: 30px;
     }
 
     .info-moves {
