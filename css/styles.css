@@ -416,7 +416,7 @@ main {
     height: 800px;
     background-color: #fff;
     border-radius: 10px;
-    padding: 30px;
+    padding: 20px 30px;
     display: grid;
     grid-template-areas: 
         "modal-id"

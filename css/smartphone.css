@@ -43,14 +43,20 @@
 
     .modal_container {
         width: 350px;
-        height: 700px;
+        height: 650px;
         padding: 20px;
     }
 
     .modal_container img {
         width: 90px;
+        margin-bottom: 70px;
     }
 
+    .modal_close {
+        font-size: 10px;
+        padding: 5px 10px;
+    }
+    
     .modal-main .types {
         margin: 20px 0 10px;
     }
@@ -85,7 +91,7 @@
 
     .info-moves {
         padding: 10px;
-        height: 120px;
+        height: 135px;
     }
 
     .info-moves p {
