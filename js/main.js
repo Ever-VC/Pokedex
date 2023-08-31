@@ -200,29 +200,29 @@ const Pokedex = (() => {
         const animation = document.querySelector(".animation");//Accede al div que permite hacer la animación
         animation.style.left = "0";//Le asigna la posición desde dónde debe partir el div de animación
         animation.style.background = "#1abc9c";//Le asigna el color que debe contener el div
-        animation.style.width = "150px";//Le asigna el ancho que debe tener el div
+        animation.style.width = "100px";//Le asigna el ancho que debe tener el div
 
         btnAbout.addEventListener("click", (e) => {
             e.preventDefault();
             animation.style.left = "0";//Le asigna la posición desde dónde debe partir el div de animación
             animation.style.background = "#1abc9c";//Le asigna el color que debe contener el div
-            animation.style.width = "150px";//Le asigna el ancho que debe tener el div
+            animation.style.width = "100px";//Le asigna el ancho que debe tener el div
             loadInformation(pokemon, "about");//Llama a la función que carga los datos que corresponden al apartado
         })
 
         btnStats.addEventListener("click", (e) => {
             e.preventDefault();
-            animation.style.left = "150px";//Le asigna la posición desde dónde debe partir el div de animación
+            animation.style.left = "100px";//Le asigna la posición desde dónde debe partir el div de animación
             animation.style.background = "#e74c3c";//Le asigna el color que debe contener el div
-            animation.style.width = "110px";//Le asigna el ancho que debe tener el div
+            animation.style.width = "100px";//Le asigna el ancho que debe tener el div
             loadInformation(pokemon, "stats");//Llama a la función que carga los datos que corresponden al apartado
         })
 
         btnMoves.addEventListener("click", (e) => {
             e.preventDefault();
-            animation.style.left = "260px";//Le asigna la posición desde dónde debe partir el div de animación
+            animation.style.left = "200px";//Le asigna la posición desde dónde debe partir el div de animación
             animation.style.background = "#9b59b6";//Le asigna el color que debe contener el div
-            animation.style.width = "150px";//Le asigna el ancho que debe tener el div
+            animation.style.width = "110px";//Le asigna el ancho que debe tener el div
             loadInformation(pokemon, "moves");//Llama a la función que carga los datos que corresponden al apartado         
         })
 

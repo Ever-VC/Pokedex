@@ -5,10 +5,11 @@
     font-family: monospace;
 }
 body{
-    background-image: url('../images/fondo4.jpeg');
+    background-color: rgb(239, 231, 222);
     background-size: cover; 
     background-repeat: no-repeat;
     background-attachment: fixed;
+    margin: 0 auto;
 }
 .home {
     top: 90%;
@@ -458,10 +459,10 @@ main {
 }
 
 .nav {
+    width: 310px;
     grid-area: nav;
 	margin: auto;
 	position: relative;
-	width: 410px;
 	height: 30px;
 	background-color: #34495e;
 	border-radius: 8px;
@@ -471,7 +472,7 @@ main {
 .nav a {
 	line-height: 30px;
 	height: 100%;
-	font-size: 18px;
+	font-size: 14px;
 	display: inline-block;
 	position: relative;
 	z-index: 1;
@@ -496,11 +497,11 @@ main {
 }
 
 .nav a:nth-child(2) {
-	width: 110px;
+	width: 100px;
 }
 
 .nav a:nth-child(3) {
-	width: 100px;
+	width: 110px;
 }
 
 .information {
@@ -615,8 +616,8 @@ main {
 }
 
 .info-moves p {
-    background-color: #9b59b6;
-    padding: 5px;
+    background-color: #36b4ee;
+    padding: 3px;
     border-radius: 10px;
     text-align: center;
     font-size: 18px;
