@@ -161,7 +161,7 @@ const Pokedex = (() => {
         let cardModal = '';//Contiene toda la estructura del modal
         //Le asigna la estructura del modal incluyendo los valores de cada propiedad a mostrar
         cardModal += `
-        <article class="modal_container blur-in blur-in-expand" data-modalCard-${pokemon.id}>
+        <article class="modal_container blur-in-expand" data-modalCard-${pokemon.id}>
             <div class="modal-id">
                 <p class="hp">
                     <span>HP #${pokemon.id.toString().padStart(3,0)}</span>
@@ -237,8 +237,14 @@ const Pokedex = (() => {
 
         btnCloseModal.addEventListener("click", () => {
             //Cuando se le da click al botón se ejecuta lo siguiente...
-            modalSection.classList.remove("modal--show");//Le elimina la clase "modal--show" para ocultarlo
-            modalSection.removeChild(cardTheme);//Remueve la tarjeta "modal" del contenedor
+            //cardTheme.classList.remove("blur-in");
+            cardTheme.classList.remove("blur-in-expand");
+            cardTheme.classList.add("blur-out-contract");
+            setTimeout(function() {
+                modalSection.classList.remove("modal--show");//Le elimina la clase "modal--show" para ocultarlo
+                modalSection.removeChild(cardTheme);//Remueve la tarjeta "modal" del contenedor
+            }, 400);
+
         })
     }
 

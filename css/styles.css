@@ -497,10 +497,6 @@ main {
 	width: 110px;
 }
 
-.information {
-    grid-area: information;
-}
-
 .modal_close {
     grid-area: modalC;
     text-decoration: none;
@@ -534,13 +530,14 @@ main {
 }
 
 .information {
+    grid-area: information;
     width: 100%;
     height: 100%;
     margin: auto;
     text-align: left;
     letter-spacing: 1px;
     font-family: monospace;
-    padding: 10px;
+    padding-top: 10px;
 }
 
 .information h2 {
@@ -616,4 +613,17 @@ main {
     font-size: 18px;
     font-weight: bold;
     color: white;
+}
+
+.blur-out-contract {
+    animation:blur-out-contract 0.4s linear both
+} 
+
+@keyframes blur-out-contract {
+    0% {
+        transform:scale(1);filter:blur(.01px);
+    } 
+    100% {
+        transform:scale(0);filter:blur(12px);opacity:0
+    }
 }
