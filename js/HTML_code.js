@@ -4,7 +4,7 @@ export const drawPokemonCard = (pokemon) => {
     card += `
         <div class="card blur-in" data-card-${pokemon.id}>
             <p class="hp">
-                <span>HP #${pokemon.id.toString().padStart(3,0)}</span>
+                <span>ID #${pokemon.id.toString().padStart(3,0)}</span>
             </p>
             <img src="${pokemon.sprites.other.dream_world.front_default}" alt="">
             <h2 class="poke-name">${pokemon.name[0].toUpperCase() + pokemon.name.slice(1)}</h2>
@@ -51,7 +51,7 @@ export const drawCardModal = (pokemon) => {
     <article class="modal_container blur-in-expand" data-modalCard-${pokemon.id}>
         <div class="modal-id">
             <p class="hp">
-                <span>HP #${pokemon.id.toString().padStart(3,0)}</span>
+                <span>ID #${pokemon.id.toString().padStart(3,0)}</span>
             </p>
         </div>
         <div class="modal-main">
