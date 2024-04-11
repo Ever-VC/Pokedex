@@ -606,7 +606,7 @@ main {
 }
 
 .info-moves p {
-    background-color: #6e2fc0;
+    /* background-color: #6e2fc0; */
     padding: 3px;
     border-radius: 10px;
     text-align: center;
