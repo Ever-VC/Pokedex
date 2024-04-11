@@ -113,12 +113,12 @@ export const showInformation = (pokemon, divInformation, typeInfo) => {
                     <p>Speed:</p>
                 </div>
                 <div class="data-value">
-                    <div class="bar"><div style="width: ${(pokemon.stats[0].base_stat)/200 * 100}%" class="hp-value">${pokemon.stats[0].base_stat}</div></div>
-                    <div class="bar"><div style="width: ${(pokemon.stats[1].base_stat)/200 * 100}%" class="hp-value">${pokemon.stats[1].base_stat}</div></div>
-                    <div class="bar"><div style="width: ${(pokemon.stats[2].base_stat)/200 * 100}%" class="hp-value">${pokemon.stats[2].base_stat}</div></div>
-                    <div class="bar"><div style="width: ${(pokemon.stats[3].base_stat)/200 * 100}%" class="hp-value">${pokemon.stats[3].base_stat}</div></div>
-                    <div class="bar"><div style="width: ${(pokemon.stats[4].base_stat)/200 * 100}%" class="hp-value">${pokemon.stats[4].base_stat}</div></div>
-                    <div class="bar"><div style="width: ${(pokemon.stats[5].base_stat)/200 * 100}%" class="hp-value">${pokemon.stats[5].base_stat}</div></div>
+                    <div class="bar"><div style="width: ${(pokemon.stats[0].base_stat)/200 * 100}%; background-color: ${typeColor[pokemon.types[0].type.name]};" class="hp-value">${pokemon.stats[0].base_stat}</div></div>
+                    <div class="bar"><div style="width: ${(pokemon.stats[1].base_stat)/200 * 100}%; background-color: ${typeColor[pokemon.types[0].type.name]};" class="hp-value">${pokemon.stats[1].base_stat}</div></div>
+                    <div class="bar"><div style="width: ${(pokemon.stats[2].base_stat)/200 * 100}%; background-color: ${typeColor[pokemon.types[0].type.name]};" class="hp-value">${pokemon.stats[2].base_stat}</div></div>
+                    <div class="bar"><div style="width: ${(pokemon.stats[3].base_stat)/200 * 100}%; background-color: ${typeColor[pokemon.types[0].type.name]};" class="hp-value">${pokemon.stats[3].base_stat}</div></div>
+                    <div class="bar"><div style="width: ${(pokemon.stats[4].base_stat)/200 * 100}%; background-color: ${typeColor[pokemon.types[0].type.name]};" class="hp-value">${pokemon.stats[4].base_stat}</div></div>
+                    <div class="bar"><div style="width: ${(pokemon.stats[5].base_stat)/200 * 100}%; background-color: ${typeColor[pokemon.types[0].type.name]};" class="hp-value">${pokemon.stats[5].base_stat}</div></div>
                 </div>
             </div>
         `;
@@ -137,7 +137,7 @@ export const showInformation = (pokemon, divInformation, typeInfo) => {
         for (let i = 0; i < pokemon.moves.length; i++) {//Recorre el arreglo de movimientos
             if (i <= 20) {
                 const pMove = document.createElement("p");//Crea un elemento "p" por cada movimiento
-                pMove.style.backgroundColor = typeColor[pokemon.types[0].type.name];;//Le asigna un color de fondo "naranja
+                pMove.style.backgroundColor = typeColor[pokemon.types[0].type.name];//Le asigna un color de fondo "naranja
                 pMove.textContent = pokemon.moves[i].move.name;//Le asigna el nombre del movimiento
                 movesInfo.appendChild(pMove);//Agrega el elemento "p" al contenedor
             } else {

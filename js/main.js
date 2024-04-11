@@ -133,6 +133,19 @@ const Pokedex = (() => {
         }
     }
 
+    const __closeModal = (cardTheme, body) => {
+        const modalContainer = document.querySelector(".modal");//Accede al contenedor del modal
+        //Cuando se le da click al botón se ejecuta lo siguiente...
+        //cardTheme.classList.remove("blur-in");
+        cardTheme.classList.remove("blur-in-expand");
+        cardTheme.classList.add("blur-out-contract");
+        setTimeout(function() {
+            modalContainer.classList.remove("modal--show");//Le elimina la clase "modal--show" para ocultarlo
+            modalContainer.removeChild(cardTheme);//Remueve la tarjeta "modal" del contenedor
+            body.style.overflow = 'visible';
+        }, 400);
+    }
+
     const _createModal = async(id) => {
         const modalSection = document.querySelector("[data-modal]");//Accede al elemento que contiene el modal
         const data = await _fetchPokemon(id);//Extrae los datos del pokémon especificado (realmente recibe el nombre, no el id)
@@ -162,6 +175,18 @@ const Pokedex = (() => {
         _styleCard(themeColor, cardTheme, divTypes);//LLama a la función que le dará los estilos según los "elementos" que contenga el pokémon
         //recibe como parámetros el color, la card a la cual se le asignará el color y el div que contiene los tipos 
         //para asignarles el diseño correspondiente
+
+        
+        // Evitar eventos de clic fuera del modal y no pueda hacer scroll
+        const modalContainer = document.querySelector('.modal');
+        const body = document.querySelector('body');
+        body.style.overflow = 'hidden';
+        
+        modalContainer.addEventListener('click', function (event) {
+            if (event.target === modalContainer) {
+                __closeModal(cardTheme, body);
+            }
+        });
 
         _loadInformation(pokemon, "about");//Hace el llamado a la función que carga la información hacerca del pokémon
         const btnAbout = document.querySelector("[data-about]");//Accede al botón que lleva al apartado de "about"
@@ -200,16 +225,9 @@ const Pokedex = (() => {
         const btnCloseModal = document.querySelector("[data-modalClose]");//Accede al botón para cerrar el modal
 
         btnCloseModal.addEventListener("click", () => {
-            //Cuando se le da click al botón se ejecuta lo siguiente...
-            //cardTheme.classList.remove("blur-in");
-            cardTheme.classList.remove("blur-in-expand");
-            cardTheme.classList.add("blur-out-contract");
-            setTimeout(function() {
-                modalSection.classList.remove("modal--show");//Le elimina la clase "modal--show" para ocultarlo
-                modalSection.removeChild(cardTheme);//Remueve la tarjeta "modal" del contenedor
-            }, 400);
+            __closeModal(cardTheme, body);
 
-        })
+        });
     }
 
     const _paintTypesButtons = () => {
