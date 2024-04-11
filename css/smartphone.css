@@ -104,11 +104,13 @@
     }
 
     .bar {
-        height: 17px;
+        height: 13px;
+        margin-bottom: 0;
+        margin-top: 4px;
     }
 
     .bar .hp-value {
-        font-size: 13px;
+        font-size: 12px;
     }
 
     .home {
