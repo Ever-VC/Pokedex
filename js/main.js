@@ -61,14 +61,30 @@ const Pokedex = (() => {
             e.preventDefault();//Evita que se ejecute el evento por defecto
             const pokeName = document.querySelector("[data-input]").value;//Extrae el texto que contiene el input
             if (pokeName.length !== 0) {//Verifica que la cadena sea diferente de 0, es decir, que contenga texto
-                _waitingCardsLoad();//Hace el llamado a la función que muestra el estado de "Cargando"
-                //Espera que transcurra un periodo de tiempo (en segundos) para seguir con la ejecución
-                setTimeout(function() {
-                    _pokemonsShow(pokeName.toLowerCase());//Hace el llamado a la función para mostrar los Pokémons
-                    //Se le envía por parámetros el valor "pokeName.toLowerCase()" ya que es lo que contiene el nombre
-                    //del pokémon que se esta buscar
-                }, 1000);
-                document.querySelector("[data-input]").value = "";//Se elimina el texto del input
+                // Verifica si el texto ingresado es un número
+                if (!isNaN(pokeName)) {
+                    // Si es un número, verifica que esté dentro del rango de pokémones existentes (1 - 649)
+                    if (parseInt(pokeName) > 0 && parseInt(pokeName) <= 649) {
+                        _waitingCardsLoad();//Hace el llamado a la función que muestra el estado de "Cargando"
+                        //Espera que transcurra un periodo de tiempo (en segundos) para seguir con la ejecución
+                        setTimeout(function() {
+                            _pokemonsShow(pokeName);//Hace el llamado a la función para mostrar los Pokémons
+                            //Se le envía por parámetros el valor "pokeName" ya que es lo que contiene el id del pokémon que se esta buscar
+                        }, 1000);
+                        document.querySelector("[data-input]").value = "";//Se elimina el texto del input
+                    } else {
+                        alert('El número ingresado no es válido. Por favor, ingrese un número entre 1 y 649.');//Si no se ingresó ningún caracter, se le indica al usuario
+                    }
+                } else {
+                    _waitingCardsLoad();//Hace el llamado a la función que muestra el estado de "Cargando"
+                    //Espera que transcurra un periodo de tiempo (en segundos) para seguir con la ejecución
+                    setTimeout(function() {
+                        _pokemonsShow(pokeName.toLowerCase());//Hace el llamado a la función para mostrar los Pokémons
+                        //Se le envía por parámetros el valor "pokeName.toLowerCase()" ya que es lo que contiene el nombre
+                        //del pokémon que se esta buscar
+                    }, 1000);
+                    document.querySelector("[data-input]").value = "";//Se elimina el texto del input
+                }
             } else {
                 alert('Por favor ingrese el nombre del Pokémon en la caja de texto.');//Si no se ingresó ningún caracter, se le indica al usuario
             }
