@@ -18,5 +18,5 @@ export const typeColor = {
     water: "#0190ff",
     all: "#6A00AF",
     steel: "#848787",
-    dark: "#000000",
+    dark: "#000000"
 }
