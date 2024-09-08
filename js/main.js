@@ -6,7 +6,7 @@ import { typeColor } from "./colors.js";
 //Implementando el patron módulo
 const Pokedex = (() => {
     'use strict';
-    let _amount = 150;//Almacena la cantidad de Pokémons a mostrar
+    let _amount = 649;//Almacena la cantidad de Pokémons a mostrar
 
     //Única función pública (Se hace el llamado al final del código)
     const showPokedex = (name) => {
